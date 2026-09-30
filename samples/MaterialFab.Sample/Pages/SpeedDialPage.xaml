@@ -1,0 +1,59 @@
+<ContentPage
+    x:Class="MaterialFab.Sample.Pages.SpeedDialPage"
+    xmlns:fab="clr-namespace:MaterialFab;assembly=MaterialFab"
+    Title="Speed dial">
+
+    <Grid>
+        <VerticalStackLayout Padding="16" Spacing="8">
+            <Label Style="{StaticResource Header}" Text="Speed dial" />
+            <Label Text="A speed dial is a pattern built from several FABs: the main FAB rotates its icon and the mini FABs appear one after another with the native Show() animation (scale + fade)." />
+            <Label x:Name="StatusLabel" Margin="0,16" FontAttributes="Italic" />
+        </VerticalStackLayout>
+
+        <!-- Scrim that dims the background; tapping it closes the menu. -->
+        <BoxView x:Name="Scrim" Color="Black" Opacity="0" IsVisible="False">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnScrimTapped" />
+            </BoxView.GestureRecognizers>
+        </BoxView>
+
+        <VerticalStackLayout x:Name="Dial" Spacing="12" Margin="16"
+                             HorizontalOptions="End" VerticalOptions="End">
+
+            <!-- The 56dp column matches the main FAB width, so the mini FABs are centered above it
+                 and the labels don't jump when a mini FAB goes from GONE to VISIBLE. -->
+            <Grid ColumnDefinitions="*,56" ColumnSpacing="12" HeightRequest="48">
+                <Border x:Name="Label1" Padding="10,4" Opacity="0" StrokeThickness="0" StrokeShape="RoundRectangle 6"
+                        BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="End">
+                    <Label Text="Photo" TextColor="Black" />
+                </Border>
+                <fab:FloatingActionButton x:Name="Mini1" Grid.Column="1" Size="Mini" Icon="ic_image.png" IsShown="False"
+                                          HorizontalOptions="Center" VerticalOptions="Center"
+                                          BackgroundColor="White" IconColor="{StaticResource Primary}" Clicked="OnMiniClicked" />
+            </Grid>
+            <Grid ColumnDefinitions="*,56" ColumnSpacing="12" HeightRequest="48">
+                <Border x:Name="Label2" Padding="10,4" Opacity="0" StrokeThickness="0" StrokeShape="RoundRectangle 6"
+                        BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="End">
+                    <Label Text="List" TextColor="Black" />
+                </Border>
+                <fab:FloatingActionButton x:Name="Mini2" Grid.Column="1" Size="Mini" Icon="ic_list.png" IsShown="False"
+                                          HorizontalOptions="Center" VerticalOptions="Center"
+                                          BackgroundColor="White" IconColor="{StaticResource Primary}" Clicked="OnMiniClicked" />
+            </Grid>
+            <Grid ColumnDefinitions="*,56" ColumnSpacing="12" HeightRequest="48">
+                <Border x:Name="Label3" Padding="10,4" Opacity="0" StrokeThickness="0" StrokeShape="RoundRectangle 6"
+                        BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="End">
+                    <Label Text="Note" TextColor="Black" />
+                </Border>
+                <fab:FloatingActionButton x:Name="Mini3" Grid.Column="1" Size="Mini" Icon="ic_notes.png" IsShown="False"
+                                          HorizontalOptions="Center" VerticalOptions="Center"
+                                          BackgroundColor="White" IconColor="{StaticResource Primary}" Clicked="OnMiniClicked" />
+            </Grid>
+
+            <Grid ColumnDefinitions="*,56">
+                <fab:FloatingActionButton x:Name="MainFab" Grid.Column="1" Icon="ic_add.png"
+                                          SemanticProperties.Description="Open menu" Clicked="OnMainClicked" />
+            </Grid>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

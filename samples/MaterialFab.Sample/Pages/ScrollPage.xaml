@@ -1,0 +1,26 @@
+<ContentPage
+    x:Class="MaterialFab.Sample.Pages.ScrollPage"
+    xmlns:fab="clr-namespace:MaterialFab;assembly=MaterialFab"
+    Title="Scroll (ScrollView)">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <VerticalStackLayout Grid.Row="0" Padding="16,4"
+                             BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}">
+            <Label x:Name="ThresholdLabel" Text="Threshold: 24" />
+            <Slider Minimum="0" Maximum="200" Value="24" ValueChanged="OnThresholdChanged" />
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <ScrollView.Behaviors>
+                <fab:FabScrollBehavior x:Name="ScrollBehavior" Fab="{x:Reference EditFab}" Action="Hide" />
+            </ScrollView.Behaviors>
+            <VerticalStackLayout x:Name="Paragraphs" Padding="16" Spacing="12" />
+        </ScrollView>
+
+        <!-- Regular FAB, hidden with the Hide() animation when scrolling down and shown again when scrolling up. -->
+        <fab:FloatingActionButton x:Name="EditFab" Grid.Row="1" Icon="ic_edit.png"
+                                  HorizontalOptions="End" VerticalOptions="End" Margin="16"
+                                  SemanticProperties.Description="Edit" Clicked="OnEditClicked" />
+    </Grid>
+</ContentPage>

@@ -1,0 +1,46 @@
+<ContentPage
+    x:Class="MaterialFab.Sample.Pages.ListPage"
+    xmlns:fab="clr-namespace:MaterialFab;assembly=MaterialFab"
+    Title="List (CollectionView)">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <Grid Grid.Row="0" Padding="16,4" ColumnDefinitions="Auto,*" ColumnSpacing="12"
+              BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}">
+            <Label Text="On scroll:" VerticalOptions="Center" />
+            <Picker x:Name="ActionPicker" Grid.Column="1" SelectedIndexChanged="OnActionChanged" />
+        </Grid>
+
+        <CollectionView x:Name="List" Grid.Row="1" Scrolled="OnListScrolled">
+            <CollectionView.Behaviors>
+                <fab:FabScrollBehavior x:Name="ScrollBehavior" Fab="{x:Reference ComposeFab}" Action="Shrink" />
+            </CollectionView.Behaviors>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <Grid Padding="16,10" ColumnDefinitions="40,*" ColumnSpacing="12">
+                        <Border WidthRequest="40" HeightRequest="40" StrokeShape="Ellipse" StrokeThickness="0"
+                                BackgroundColor="{StaticResource Primary}">
+                            <Label Text="{Binding ., Converter={StaticResource FirstLetter}}" TextColor="White"
+                                   HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1">
+                            <Label Text="{Binding .}" FontAttributes="Bold" />
+                            <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit..." LineBreakMode="TailTruncation" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Mini "scroll to top" FAB, shown once the list is scrolled past a few items. -->
+        <fab:FloatingActionButton x:Name="ScrollTopFab" Grid.Row="1" Icon="ic_arrow_up.png" Size="Mini"
+                                  IsShown="False" HorizontalOptions="Center" VerticalOptions="End" Margin="16"
+                                  BackgroundColor="White" IconColor="{StaticResource Primary}"
+                                  SemanticProperties.Description="Scroll to top" Clicked="OnScrollTopClicked" />
+
+        <!-- Primary screen action: an extended FAB that shrinks on scroll (FabScrollBehavior). -->
+        <fab:ExtendedFloatingActionButton x:Name="ComposeFab" Grid.Row="1" Icon="ic_edit.png" Text="Compose"
+                                          HorizontalOptions="End" VerticalOptions="End" Margin="16"
+                                          Clicked="OnComposeClicked" />
+    </Grid>
+</ContentPage>

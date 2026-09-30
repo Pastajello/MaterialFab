@@ -1,0 +1,18 @@
+<Shell
+    x:Class="MaterialFab.Sample.AppShell"
+    xmlns:pages="clr-namespace:MaterialFab.Sample.Pages"
+    Title="MaterialFab Sample"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <ShellContent Title="Variants" Icon="ic_image.png" Route="variants"
+                      ContentTemplate="{DataTemplate pages:VariantsPage}" />
+        <ShellContent Title="List" Icon="ic_list.png" Route="list"
+                      ContentTemplate="{DataTemplate pages:ListPage}" />
+        <ShellContent Title="Scroll" Icon="ic_notes.png" Route="scroll"
+                      ContentTemplate="{DataTemplate pages:ScrollPage}" />
+        <ShellContent Title="Speed dial" Icon="ic_add.png" Route="speeddial"
+                      ContentTemplate="{DataTemplate pages:SpeedDialPage}" />
+    </TabBar>
+
+</Shell>

@@ -1,0 +1,149 @@
+<ContentPage
+    x:Class="MaterialFab.Sample.Pages.VariantsPage"
+    xmlns:fab="clr-namespace:MaterialFab;assembly=MaterialFab"
+    Title="Variants">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <Label x:Name="StatusLabel" Grid.Row="0" Padding="16,8"
+               BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+               Text="Tap any FAB" />
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="16" Spacing="12">
+
+                <!-- ============ Sizes ============ -->
+                <Label Style="{StaticResource Header}" Text="Sizes (Size)" />
+                <HorizontalStackLayout Spacing="32">
+                    <VerticalStackLayout Spacing="4">
+                        <fab:FloatingActionButton Icon="ic_add.png" Size="Mini" HorizontalOptions="Center"
+                                                  SemanticProperties.Description="Mini FAB" Clicked="OnFabClicked" />
+                        <Label Style="{StaticResource Caption}" Text="Mini 40dp" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <fab:FloatingActionButton Icon="ic_add.png" Size="Normal" HorizontalOptions="Center"
+                                                  SemanticProperties.Description="Normal FAB" Clicked="OnFabClicked" />
+                        <Label Style="{StaticResource Caption}" Text="Normal 56dp" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <fab:FloatingActionButton Icon="ic_add.png" Size="Large" HorizontalOptions="Center"
+                                                  SemanticProperties.Description="Large FAB" Clicked="OnFabClicked" />
+                        <Label Style="{StaticResource Caption}" Text="Large 96dp" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+
+                <!-- ============ Colors ============ -->
+                <Label Style="{StaticResource Header}" Text="Colors (BackgroundColor / IconColor / RippleColor)" />
+                <HorizontalStackLayout Spacing="24">
+                    <VerticalStackLayout Spacing="4">
+                        <fab:FloatingActionButton Icon="ic_edit.png" HorizontalOptions="Center" Clicked="OnFabClicked" />
+                        <Label Style="{StaticResource Caption}" Text="theme" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <fab:FloatingActionButton Icon="ic_edit.png" BackgroundColor="#E91E63" IconColor="White"
+                                                  RippleColor="#FFEB3B" HorizontalOptions="Center" Clicked="OnFabClicked" />
+                        <Label Style="{StaticResource Caption}" Text="yellow ripple" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <fab:FloatingActionButton Icon="ic_edit.png" BackgroundColor="White" IconColor="#512BD4"
+                                                  HorizontalOptions="Center" Clicked="OnFabClicked" />
+                        <Label Style="{StaticResource Caption}" Text="surface" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <fab:FloatingActionButton Icon="ic_edit.png" BackgroundColor="#212121" IconColor="#80CBC4"
+                                                  RippleColor="#80CBC4" HorizontalOptions="Center" Clicked="OnFabClicked" />
+                        <Label Style="{StaticResource Caption}" Text="dark" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+
+                <!-- ============ Shape ============ -->
+                <Label Style="{StaticResource Header}" Text="Shape (CornerRadius)" />
+                <HorizontalStackLayout Spacing="24">
+                    <VerticalStackLayout Spacing="4">
+                        <fab:FloatingActionButton Icon="ic_navigation.png" CornerRadius="-1" HorizontalOptions="Center" Clicked="OnFabClicked" />
+                        <Label Style="{StaticResource Caption}" Text="-1 (theme)" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <fab:FloatingActionButton Icon="ic_navigation.png" CornerRadius="16" HorizontalOptions="Center" Clicked="OnFabClicked" />
+                        <Label Style="{StaticResource Caption}" Text="16 (M3)" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <fab:FloatingActionButton Icon="ic_navigation.png" CornerRadius="8" HorizontalOptions="Center" Clicked="OnFabClicked" />
+                        <Label Style="{StaticResource Caption}" Text="8" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <fab:FloatingActionButton Icon="ic_navigation.png" CornerRadius="0" HorizontalOptions="Center" Clicked="OnFabClicked" />
+                        <Label Style="{StaticResource Caption}" Text="0" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+
+                <!-- ============ Elevation ============ -->
+                <Label Style="{StaticResource Header}" Text="Elevation (shadow; press and hold)" />
+                <HorizontalStackLayout Spacing="24">
+                    <VerticalStackLayout Spacing="4">
+                        <fab:FloatingActionButton Icon="ic_image.png" Elevation="0" HorizontalOptions="Center" Clicked="OnFabClicked" />
+                        <Label Style="{StaticResource Caption}" Text="0" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <fab:FloatingActionButton Icon="ic_image.png" HorizontalOptions="Center" Clicked="OnFabClicked" />
+                        <Label Style="{StaticResource Caption}" Text="theme" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <fab:FloatingActionButton Icon="ic_image.png" Elevation="12" HorizontalOptions="Center" Clicked="OnFabClicked" />
+                        <Label Style="{StaticResource Caption}" Text="12" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <fab:FloatingActionButton Icon="ic_image.png" Elevation="24" HorizontalOptions="Center" Clicked="OnFabClicked" />
+                        <Label Style="{StaticResource Caption}" Text="24" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+
+                <!-- ============ Extended ============ -->
+                <Label Style="{StaticResource Header}" Text="Extended FAB" />
+                <fab:ExtendedFloatingActionButton x:Name="ComposeFab" Icon="ic_edit.png" Text="Compose"
+                                                  HorizontalOptions="Start" Clicked="OnFabClicked" />
+                <fab:ExtendedFloatingActionButton x:Name="NavigateFab" Icon="ic_navigation.png" Text="Navigate"
+                                                  BackgroundColor="#00695C" TextColor="White" IconColor="White"
+                                                  RippleColor="#A7FFEB" CornerRadius="8"
+                                                  HorizontalOptions="Start" Clicked="OnFabClicked" />
+                <fab:ExtendedFloatingActionButton Text="Text only" HorizontalOptions="Start" Clicked="OnFabClicked" />
+                <fab:ExtendedFloatingActionButton Icon="ic_add.png" Text="Disabled" IsEnabled="False" HorizontalOptions="Start" />
+
+                <FlexLayout Wrap="Wrap" JustifyContent="Start">
+                    <Button Text="Shrink / Extend" Margin="0,0,8,8" Clicked="OnToggleExtended" />
+                    <Button Text="Hide / Show (IsShown)" Margin="0,0,8,8" Clicked="OnToggleExtendedShown" />
+                    <Button Text="IsVisible (no animation)" Margin="0,0,8,8" Clicked="OnToggleExtendedVisible" />
+                    <Button Text="Change text" Margin="0,0,8,8" Clicked="OnChangeText" />
+                </FlexLayout>
+
+                <!-- ============ Playground ============ -->
+                <Label Style="{StaticResource Header}" Text="Playground" />
+                <Grid ColumnDefinitions="120,*" ColumnSpacing="16">
+                    <Border Grid.Column="0" HeightRequest="120" StrokeThickness="1" Stroke="{StaticResource Gray300}">
+                        <fab:FloatingActionButton x:Name="PlayFab" Icon="ic_add.png"
+                                                  HorizontalOptions="Center" VerticalOptions="Center"
+                                                  Command="{Binding PlayCommand}" CommandParameter="PlayFab" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="4">
+                        <Picker x:Name="SizePicker" Title="Size" SelectedIndexChanged="OnSizeChanged" />
+                        <Label x:Name="CornerLabel" Text="CornerRadius: -1" />
+                        <Slider Minimum="-1" Maximum="48" Value="-1" ValueChanged="OnCornerChanged" />
+                        <Label x:Name="ElevationLabel" Text="Elevation: -1" />
+                        <Slider Minimum="-1" Maximum="24" Value="-1" ValueChanged="OnElevationChanged" />
+                    </VerticalStackLayout>
+                </Grid>
+                <FlexLayout Wrap="Wrap" JustifyContent="Start">
+                    <Button Text="Hide / Show" Margin="0,0,8,8" Clicked="OnTogglePlayShown" />
+                    <Button Text="IsEnabled" Margin="0,0,8,8" Clicked="OnTogglePlayEnabled" />
+                    <Button Text="Random color" Margin="0,0,8,8" Clicked="OnRandomColor" />
+                    <Button Text="Reset color" Margin="0,0,8,8" Clicked="OnResetColor" />
+                    <Button Text="Change icon" Margin="0,0,8,8" Clicked="OnChangeIcon" />
+                    <Button Text="Rotate 360°" Margin="0,0,8,8" Clicked="OnRotate" />
+                </FlexLayout>
+
+                <Label Style="{StaticResource Caption}" Margin="0,16"
+                       Text="On iOS / Mac / Windows the FABs are empty 0x0 placeholder views." />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
