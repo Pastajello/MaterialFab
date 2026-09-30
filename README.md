@@ -7,6 +7,8 @@ On Android the controls are backed by the real Material Components widgets
 shape theming and the shrink / extend / show / hide animations for free.
 On other platforms the controls render as empty 0x0 placeholder views, so shared XAML compiles and runs everywhere.
 
+![MaterialFab demo: FAB variants, shrink/extend and show/hide, an extended FAB shrinking and hiding on scroll, a scroll-to-top mini FAB, and a speed dial](docs/demo.gif)
+
 > **Version 0.1** – early preview. The API may change.
 
 | Platform | Status |
